@@ -14,7 +14,7 @@ RUN apk add --no-cache --update wget ca-certificates \
    export KERNELDIR=/usr/src/linux-headers-$KERNELVER-linuxkit/ && \
    tar xf /kernel-dev.tar && \
    cd $KERNELDIR && \
-   find /proc -type f -name "config.gz" -exec cp {} . \; &&
+   find /proc -type f -name "config.gz" -exec cp {} . \; && \
  #  zcat /proc/config.gz > .config && \
  #  zcat /proc/1/root/proc/config.gz > .config && \
    make olddefconfig && \
