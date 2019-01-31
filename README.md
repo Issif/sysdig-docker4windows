@@ -25,6 +25,10 @@ docker run -i -t --privileged -v /var/run/docker.sock:/host/var/run/docker.sock 
 
 > `--privileged` argument is used to permit docker add kernel module with entrypoint
 
+# Dockerfiles
+
+Where are they? They are in their own branch, one by kernel version. If yours is missing, please create an issue or pull request. I will try to keep each branch up to date with sysdig releases. 
+
 # Special thanks
 
 * Michael Ducy (https://github.com/mfdii) for his help with module compilation and advices on slack
