@@ -3,6 +3,7 @@ FROM linuxkit/kernel:4.9.125 AS kernelsrc
 FROM alpine:latest AS modulesrc
 MAINTAINER Thomas Labarussias <issif+sysdig@gadz.org>
 ARG SYSDIGVER=0.24.2
+ARG KERNELVER=4.9.125
 COPY --from=kernelsrc /kernel-dev.tar /
 RUN apk add --no-cache --update wget ca-certificates \
    build-base gcc abuild binutils \
@@ -10,7 +11,6 @@ RUN apk add --no-cache --update wget ca-certificates \
    cmake \
    git \
    autoconf && \
-   export KERNELVER=$(uname -r | cut -d '-' -f 1) && \
    export KERNELDIR=/usr/src/linux-headers-$KERNELVER-linuxkit/ && \
    tar xf /kernel-dev.tar && \
    cd $KERNELDIR && \
