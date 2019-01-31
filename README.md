@@ -19,8 +19,9 @@ docker run -ti --rm alpine:latest uname -r | cut -f1 -d"-"
 Simply run :
 
 ```
-docker run -i -t --privileged -v /var/run/docker.sock:/host/var/run/docker.sock -v /dev:/host/dev -v /proc:/host/proc:ro -v /boot:/host/boot:ro -v /lib/modules:/host/lib/modules:ro -v /usr:/host/usr:ro issif/sysdig-docker4windows:{TAG}"
+docker run -i -t --privileged -v /var/run/docker.sock:/host/var/run/docker.sock -v /dev:/host/dev -v /proc:/host/proc:ro -v /boot:/host/boot:ro -v /lib/modules:/host/lib/modules:ro -v /usr:/host/usr:ro issif/sysdig-docker4windows:{TAG}
 ```
+
 > Adapt *{TAG}* to use the right version for your kernel (4.9.125 in example above)
 
 > `--privileged` argument is used to permit docker add kernel module with entrypoint
