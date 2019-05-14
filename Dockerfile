@@ -2,7 +2,7 @@ FROM linuxkit/kernel:4.9.125 AS kernelsrc
 
 FROM alpine:latest AS modulesrc
 MAINTAINER Thomas Labarussias <issif+sysdig@gadz.org>
-ARG SYSDIGVER=0.24.2
+ARG SYSDIGVER=0.25
 ARG KERNELVER=4.9.125
 COPY --from=kernelsrc /kernel-dev.tar /
 RUN apk add --no-cache --update wget ca-certificates \
