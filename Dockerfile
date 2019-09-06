@@ -1,9 +1,9 @@
-FROM linuxkit/kernel:4.9.125 AS kernelsrc
+FROM linuxkit/kernel:4.9.184 AS kernelsrc
 
 FROM alpine:latest AS modulesrc
 MAINTAINER Thomas Labarussias <issif+sysdig@gadz.org>
-ARG SYSDIGVER=0.25
-ARG KERNELVER=4.9.125
+ARG SYSDIGVER=0.26.4
+ARG KERNELVER=4.9.184
 COPY --from=kernelsrc /kernel-dev.tar /
 RUN apk add --no-cache --update wget ca-certificates \
    build-base gcc abuild binutils \
@@ -33,7 +33,7 @@ RUN apk add --no-cache --update wget ca-certificates \
    git \
    autoconf
 
-FROM sysdig/sysdig:0.24.2 
+FROM sysdig/sysdig:0.26.4 
 
 COPY --from=modulesrc /sysdig/build/driver/sysdig-probe.ko /
 
